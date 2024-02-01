@@ -1,0 +1,202 @@
+
+/*variáveis*/
+:root{
+    --pageBackground: #eff7fc;
+    --cardBackground: #0585c5c0;
+    --cardDetalhe: #c9e5ee; 
+    --fontColor: #393939;
+    --shadows: rgba(57,57,57,0.2);
+    --fontForms: #e7e4e4; 
+    --fontPadrao: 'Roboto', sans-serif;
+    --fontLogo: 'Josefin Sans', Roboto;
+}
+
+/*fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto:wght@100;400&display=swap');
+/*reset - Agora precisamos redefinir algumas propriedades das tags principais. 
+No nosso caso, quero remover os espaçamentos pré-definidos das tags HTML e BODY, 
+assim terei um controle maior deles.*/
+html,
+body{
+    height: 100%;
+    margin: 0;
+}
+
+/*estilos básicos*/
+
+body{
+    background-color: var(--pageBackground);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container_filho{ 
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px var(--shadows);
+    border-radius: 10px;
+    background-color: var(--cardBackground);
+    padding: 0%;
+    
+}
+
+.formulario{
+    margin-top: 5%;
+}
+
+.container_detalhe{ 
+    width: 85%;
+    height: 62%;
+    margin: 0 auto;
+    background-color: var(--cardDetalhe);
+    
+}
+
+img{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text_logo{
+    margin-top: 5% ;
+    text-align: center;
+    font-family: var(--fontLogo);
+    font-size: 5ex;
+    color: var(--cardBackground);
+    text-align: center;
+    
+}
+
+label{
+    line-height: 100%;
+    display: flex;
+    justify-content: left;
+    color: var(--fontForms);
+}
+ 
+  
+.input-box{
+    margin: 3%;
+    text-align: center;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: var(--fontLogo);
+    
+}
+
+.input-box label{
+    margin-left: 24%;
+}
+
+.check-senha-box{
+    margin: 0 auto;
+    margin-left: 26%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: var(--fontLogo);
+    font-weight: bold;
+    font-size: 100%;
+    color: var(--fontForms);
+    
+}
+
+.check-senha-box input{
+    transform: scale(1.3);
+}
+
+
+.botao-box{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.botao-box input{
+    border: none;
+    width: 40%;
+    height: 35px;
+    background-color: #226194e0;
+    color: #eff7fc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--fontLogo);
+    font-size: 115%;
+}
+
+.input-box input{
+    border: none;
+    background-color: #dfdfdfe0;
+    width: 50%;
+    height: 35px;
+}
+
+
+@media only screen and (min-width : 720px){
+    .container_filho{ 
+        width: 60%;
+        height: 95%;
+        box-shadow: 0 0 10px var(--shadows);
+        border-radius: 10px;
+        background-color: var(--cardBackground);
+        padding: 0%;
+        
+    }
+
+    img{
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_logo{
+        margin-top: 5% ;
+        text-align: center;
+        font-family: var(--fontLogo);
+        font-size: 7ex;
+        color: var(--cardBackground);
+        text-align: center;
+        
+    }
+    
+}
+
+
+@media only screen and (min-width : 920px){
+    .container_filho{ 
+        width: 30%;
+        height: 95%;
+        box-shadow: 0 0 10px var(--shadows);
+        border-radius: 10px;
+        background-color: var(--cardBackground);
+        padding: 0%;
+        
+    }
+
+    .text_logo{
+        margin-top: 5% ;
+        text-align: center;
+        font-family: var(--fontLogo);
+        font-size: 6ex;
+        color: var(--cardBackground);
+        text-align: center;
+        
+    }
+    
+}

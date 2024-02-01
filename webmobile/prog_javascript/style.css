@@ -1,0 +1,114 @@
+
+/*fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
+/*reset - Agora precisamos redefinir algumas propriedades das tags principais. 
+No nosso caso, quero remover os espaçamentos pré-definidos das tags HTML e BODY, 
+assim terei um controle maior deles.*/
+
+:root{
+    --fontPadrao: Alkatra, Alkatra;
+}
+
+
+html,
+body{
+    height: 100%;
+    margin: 0;
+}
+
+header h1{
+   text-align: center;
+   font-size: 300%;
+   font-family: var(--fontPadrao);
+}
+
+#content1 article p{
+    padding: 0 10px;
+    width: calc(100% - 20px);
+    font-size: 120%;
+}
+
+#content1 article p span{
+    height: 10px;
+    display: block;
+    background-color: aquamarine;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#content1 article img{
+    max-width: 60%;
+}
+
+.imagem{
+    display: flex;
+    justify-content: center;
+}
+
+#content1 article h1{
+    display: flex;
+    justify-content: center;
+    font-size: 150%;
+    font-family: var(--fontPadrao);
+}
+
+#content2 article h1{
+    display: flex;
+    justify-content: center;
+    font-size: 150%;
+    font-family: var(--fontPadrao);
+}
+
+#content2 article p{
+    padding: 0 10px;
+    width: calc(100% - 20px);
+    font-size: 120%;
+}
+
+#content2 article p span{
+    height: 10px;
+    display: block;
+    background-color: aquamarine;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#content2 article img{
+    max-width: 60%;
+}
+
+#container{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 150%; 
+}
+
+#container_body{
+    display:flex; 
+    background-color: rgba(198, 252, 149, 0.76); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(57,57,57,0.2);
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#contents_group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    column-gap: 30px;
+}
+
+#footer_group{
+    display: flex;
+    justify-content: center;
+}
+
+header h2{
+    text-align: center;
+    font-family: var(--fontPadrao);
+}

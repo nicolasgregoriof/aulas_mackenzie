@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Testando o sistema funcionários</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Gerenciamento de funcionários</h1>
+        <table>
+            <tr><td>Matrícula: </td> <td><input type="text" id="txtMat"></td> </tr>
+            <tr><td>Nome: </td> <td><input type="text" id="txtNome"></td> </tr>
+            <tr><td>Sexo: </td> <td><input type="text" id="txtSexo"></td> </tr>
+            <tr><td>Salario: </td> <td><input type="text" id="txtSalario"></td> </tr>
+            <tr><td>Dpto: </td> <td><input type="text" id="txtDpto"></td> </tr>
+            <tr><td>Supervisor: </td> <td><input type="text" id="txtSupervisor"></td> </tr>
+            <tr><td> </td><td>
+                <input type="button" value="Consultar" onClick="consultarFuncionario()">
+                <input type="button" value="Adicionar" onClick="adicionarFuncionario()">
+                <input type="button" value="Atualizar" onClick="atualizarFuncionario()">
+                <input type="button" value="Remover" onClick="removerFuncionario()">
+                <input type="button" value="Limpar" onClick="limparFuncionario()">
+            </td></tr>
+        </table>
+        <h1><label id="msgErro">Mensagem status:</label></h1>
+        
+        <script>
+        
+        const txtMat = document.getElementById("txtMat");
+        const txtNome = document.getElementById("txtNome");
+        const txtSexo = document.getElementById("txtSexo");
+        const txtSalario = document.getElementById("txtSalario");
+        const txtDpto = document.getElementById("txtDpto");
+        const txtSupervisor = document.getElementById("txtSupervisor");
+        const msgErro = document.getElementById("msgErro");
+        
+        function carregarFuncionario(jsonFuncionario){
+            txtMat.value = jsonFuncionario.mat;
+            txtNome.value = jsonFuncionario.nome;
+            txtSexo.value = jsonFuncionario.salario;
+            txtSalario.value = jsonFuncionario.sexo;
+            txtDpto.value = jsonFuncionario.dpto;
+            txtSupervisor.value = jsonFuncionario.supervisor;
+        }
+               
+        async function consultarFuncionario(){
+           fetch('http://localhost:8080/empresa/sistema/rest/funcionarios/'+txtMat.value).
+           then(resposta => {
+               if(!resposta.ok){
+                   throw Error(resposta.status);
+               }
+               return resposta.json();
+           }).
+           then(jsonResposta => carregarFuncionario(jsonResposta)).
+           catch(erro=> msgErro.innerHTML = 'Mensagem status: Funcionario ID ['+txtMat.value+
+                    '] não encontrado. Erro ['+erro.message+']');
+       } 
+       
+        async function adicionarFuncionario(){
+           fetch('http://localhost:8080/empresa/sistema/rest/funcionarios/',
+            {method:'POST',
+                body: JSON.stringify({
+                    mat: txtMat.value,
+                    nome: txtNome.value,
+                    salario: txtSalario.value,
+                    sexo: txtSexo.value,    
+                    dpto: txtDpto.value,
+                    supervisor: txtSupervisor.value
+                }),
+                headers:{
+                    "Content-type":"application/json"
+                }
+            }).
+            then(resposta => {
+                if(!resposta.ok){
+                    throw Error(resposta.status);
+                }
+                return resposta;
+            }).
+            then(jsonResposta => msgErro.innerHTML = 'Mensagem status: Funcionario ID ['+ txtMat.value +
+                    '] inserido.').
+            catch(erro=> msgErro.innerHTML = 'Mensagem status: Funcionario ID ['+txtMat.value+
+                    '] não inserido. Erro ['+erro.message+']');
+       }
+       
+        async function atualizarFuncionario(){
+            fetch('http://localhost:8080/empresa/sistema/rest/funcionarios/',
+            {method:'PUT',
+                body: JSON.stringify({
+                    mat: txtMat.value,
+                    nome: txtNome.value,
+                    salario: txtSalario.value,  
+                    sexo: txtSexo.value,
+                    dpto: txtDpto.value,
+                    supervisor: txtSupervisor.value
+                }),
+                headers:{
+                   "Content-type":"application/json" 
+                }
+            }).
+            then(resposta => {
+                if (!resposta.ok){
+                    throw Error(resposta.status);
+            }
+            return resposta;
+            }).
+            then(jsonResposta => msgErro.innerHTML = 'Mensagem status: Funcionario Mat ['+txtMat.value+'] atualizado.').
+            catch(erro => msgErro.innerHTML = 'Mensagem status: Funcionario Mat ['+txtMat.value+
+                '] não atualizado. Erro ['+erro.message+']');           
+        }
+        
+        async function removerFuncionario(){
+            fetch('http://localhost:8080/empresa/sistema/rest/funcionarios/'+txtMat.value,{method:'DELETE'}).
+            then(resposta => {
+                if(!resposta.ok){
+                    throw Error(resposta.status);
+                }
+                return resposta;
+             }).
+             then(jsonResposta => msgErro.innerHTML = 'Mensagem status: Aluno ID['+txtMat.value+'] removido').
+             catch(erro => msgErro.innerHTML = 'Mensagem status: Aluno ID ['+txtId.value+
+                '] não removido. Erro ['+erro.message+']');
+        }
+        
+        function limparFuncionario(){
+            txtMat.value = "";
+            txtNome.value = "";
+            txtSexo.value = "";
+            txtSalario.value = "";
+            txtDpto.value = "";
+            txtSupervisor.value = "";
+       }
+       
+       
+       </script> 
+        
+    </body>
+</html>

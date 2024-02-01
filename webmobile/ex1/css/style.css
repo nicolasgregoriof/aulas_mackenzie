@@ -1,0 +1,66 @@
+
+/*variáveis*/
+:root{
+    --pageBackground: #f0f0f0;
+    --cardBackground: #fff;
+    --fontColor: #393939;
+    --shadows: rgba(57,57,57,0.2);
+}
+
+/*fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+
+/*reset - Agora precisamos redefinir algumas propriedades das tags principais. 
+No nosso caso, quero remover os espaçamentos pré-definidos das tags HTML e BODY, 
+assim terei um controle maior deles.*/
+html,
+body{
+    height: 100%;
+    margin: 0;
+}
+
+/*estilos básicos*/
+*{
+    font-family: 'Roboto', sans-serif;
+    color: var(--fontColor);
+}
+
+body{
+    background-color: var(--pageBackground);
+}
+
+article{
+    margin: 20px;
+    box-shadow: 0 0 10px var(--shadows);
+    border-radius: 10px;
+    background-color: var(--cardBackground);
+    padding: 20px;
+}
+
+img{
+    width: 30%;
+}
+
+*{
+    font-size: 20pt;
+}
+
+
+/*Media - No código de exemplo, criamos uma media query que se aplica a telas apenas, 
+com tamanho mínimo de 920px, ou seja, toda largura igual ou superior a 920px.*/
+@media only screen and (min-width : 920px){
+    *{
+        font-size: 14pt;
+    }
+
+    body{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    article{
+        width: 30%;
+    }
+}

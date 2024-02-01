@@ -1,0 +1,147 @@
+/*fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+/*variáveis*/
+:root{
+    --pageBackground: #f9fdffec;
+    --cardBackground: #fafafabd;
+    --fontColor: #000000;
+    --shadows: rgba(57,57,57,0.2);
+    --fontPadrao: 'Montserrat', 'sans-serif';
+}
+
+/*reset - Agora precisamos redefinir algumas propriedades das tags principais. 
+No nosso caso, quero remover os espaçamentos pré-definidos das tags HTML e BODY, 
+assim terei um controle maior deles.*/
+html,
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*estilos básicos*/
+body{
+    background-color: var(--pageBackground);
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#b1b1b1ea;
+    
+    height: 100vh;
+}
+
+#body_blocks{
+    background-color: #ececec;
+    box-shadow: 0 0 10px #050505;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;  
+}
+
+.cards_block{
+    background-color: #fdfdfd;
+    border-radius: 5%;
+    box-shadow: 0 0 10px #555555;
+    width: 45vh;
+    height: 13vh;
+    
+    
+}
+
+#header_block h1{
+    text-align: center;
+    font-family: var(--fontPadrao);
+    font-size: 4vh;
+    font-weight:bold;
+    color: dimgrey;
+}
+
+#footer_block p{
+    text-align: center;
+    font-size: 2vh;
+    font-weight:bold;
+}
+
+.cards_block p{
+    font-size: 2vh;
+    margin: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    
+}
+
+
+/*Media query para telas de tablet*/
+@media (max-width: 1024px) {
+    #body_blocks {
+      width: 80%;
+    }
+  
+    .cards_block {
+      width: 35vh;
+      height: 11vh;
+      font-size: 1.8vh;
+    }
+  
+    #header_block h1 {
+      font-size: 3.5vh;
+    }
+  
+    #footer_block p {
+      font-size: 1.8vh;
+    }
+  }
+  
+  /*Media query para telas de notebook*/
+  @media (max-width: 1366px) {
+    #body_blocks {
+      width: 70%;
+    }
+  
+    .cards_block {
+      width: 30vh;
+      height: 12vh;
+      font-size: 1.5vh;
+    }
+  
+    #header_block h1 {
+      font-size: 3vh;
+    }
+  
+    #footer_block p {
+      font-size: 1.5vh;
+    }
+  }
+  
+  /*Media query para telas de mobile*/
+  @media (max-width: 767px) {
+    #body_blocks {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .cards_block {
+      width: 80%;
+      height: 15vh;
+      font-size: 3vh;
+      margin: 1vh 0;
+    }
+  
+    #header_block h1 {
+      font-size: 4vh;
+    }
+  
+    #footer_block p {
+      font-size: 3vh;
+    }
+  }
